@@ -1,0 +1,11 @@
+# Agent folders (podem conter credenciais/tokens)
+.claude/
+
+# Específico do SO
+Thumbs.db
+.DS_Store
+
+# Temporários / editores
+*.tmp
+*.swp
+*~
