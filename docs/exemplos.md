@@ -94,4 +94,4 @@ Antes dos ataques, o laboratório é mapeado com Nmap (ver [`../images/00-nmap.t
 nmap -Pn -sV -p 21,80,139,445 lab-ftp lab-smb lab-web lab-dvwa
 ```
 
-> Esquema completo do comando e regras em [../specs/001-medusa-brute-force/contracts/medusa-command.md](../specs/001-medusa-brute-force/contracts/medusa-command.md).
+> Dica: consulte `medusa -M <módulo> -q` para ver as opções específicas de cada módulo.

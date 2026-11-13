@@ -9,3 +9,7 @@ Thumbs.db
 *.tmp
 *.swp
 *~
+
+# Scaffolding do Spec Kit (mantido apenas localmente)
+.specify/
+specs/
