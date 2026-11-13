@@ -2,41 +2,52 @@
 
 Para reproduzir o laboratório, você precisa de:
 
-## 1. Kali Linux com a Medusa
+## 1. Kali Linux com a Medusa e o Nmap
 
-A Medusa já acompanha o Kali Linux. Verifique a instalação:
-
-```bash
-medusa -h | head -n 3
-```
-
-Se não estiver presente, instale:
+Já acompanham o Kali. Verifique:
 
 ```bash
-sudo apt update && sudo apt install -y medusa
+medusa -V | head -1
+nmap --version | head -1
 ```
 
-## 2. Um alvo de laboratório isolado e autorizado
+Se faltar algo:
 
-- Uma máquina **sua**, em rede isolada (host-only/interna), com os serviços a testar habilitados (SSH e/ou FTP).
-- Exemplos comuns em laboratório introdutório: uma VM propositalmente vulnerável (ex.: Metasploitable 2) ou um contêiner configurado para isso.
-- Anote o IP do alvo; nos exemplos usamos `192.168.56.101` (veja [convencoes.md](./convencoes.md)).
+```bash
+sudo apt update && sudo apt install -y medusa nmap
+```
 
-> ⚠️ Nunca aponte os comandos para sistemas que não sejam seus ou para os quais você não tenha autorização. Veja [uso-responsavel.md](./uso-responsavel.md).
+## 2. Docker (para o laboratório de alvos)
 
-## 3. Wordlists
+Os alvos são contêineres descartáveis. Instale o Docker e garanta seu usuário no grupo:
+
+```bash
+sudo apt install -y docker.io
+sudo usermod -aG docker "$USER"   # reabra a sessão depois
+```
+
+## 3. Subir o laboratório isolado
+
+```bash
+cd scripts
+chmod +x *.sh
+./lab-up.sh
+```
+
+Isso sobe os alvos **FTP, SMB, Web (auth básica) e DVWA** na rede `medusa-lab`, sem publicar portas no host. Detalhes em [laboratorio.md](./laboratorio.md).
+
+## 4. Wordlists
 
 - Listas de exemplo deste repositório: `wordlists/usuarios.txt` e `wordlists/senhas.txt`.
-- Alternativamente, wordlists públicas do Kali (ex.: `/usr/share/wordlists/rockyou.txt`) — maiores e mais realistas, porém com execução mais longa.
+- Alternativa pública do Kali: `/usr/share/wordlists/rockyou.txt` (maior, execução mais longa).
 
 ## Verificação rápida
 
 ```bash
-# Medusa disponível
-medusa -d | head            # lista os módulos de serviço
-
-# Conectividade com o alvo
-ping -c 2 192.168.56.101
+medusa -d | head           # módulos disponíveis
+docker ps --filter network=medusa-lab   # alvos no ar
 ```
 
-Com esses três itens prontos, siga o roteiro em [metodologia.md](./metodologia.md) e os [exemplos.md](./exemplos.md).
+Com isso pronto, siga o roteiro em [metodologia.md](./metodologia.md) e os [exemplos.md](./exemplos.md).
+
+> ⚠️ Nunca aponte os comandos para sistemas que não sejam seus ou sem autorização. Veja [uso-responsavel.md](./uso-responsavel.md).

@@ -1,0 +1,50 @@
+== Nmap recon (laboratorio medusa-lab) ==
+Starting Nmap 7.80 ( https://nmap.org ) at 2026-11-13 20:28 UTC
+Nmap scan report for lab-ftp (172.24.0.2)
+Host is up (0.000023s latency).
+rDNS record for 172.24.0.2: lab-ftp.medusa-lab_medusa-lab
+
+PORT    STATE  SERVICE      VERSION
+21/tcp  open   ftp          vsftpd 2.0.8 or later
+80/tcp  closed http
+139/tcp closed netbios-ssn
+445/tcp closed microsoft-ds
+MAC Address: CA:19:36:72:AB:0F (Unknown)
+Service Info: Host: Welcome
+
+Nmap scan report for lab-smb (172.24.0.3)
+Host is up (0.000048s latency).
+rDNS record for 172.24.0.3: lab-smb.medusa-lab_medusa-lab
+
+PORT    STATE  SERVICE     VERSION
+21/tcp  closed ftp
+80/tcp  closed http
+139/tcp open   netbios-ssn Samba smbd 3.X - 4.X (workgroup: MYGROUP)
+445/tcp open   netbios-ssn Samba smbd 3.X - 4.X (workgroup: MYGROUP)
+MAC Address: 9E:37:60:7F:0B:26 (Unknown)
+Service Info: Host: DF0CD2F87979
+
+Nmap scan report for lab-web (172.24.0.6)
+Host is up (0.000018s latency).
+rDNS record for 172.24.0.6: lab-web.medusa-lab_medusa-lab
+
+PORT    STATE  SERVICE      VERSION
+21/tcp  closed ftp
+80/tcp  open   http         nginx 1.31.4
+139/tcp closed netbios-ssn
+445/tcp closed microsoft-ds
+MAC Address: FA:5A:B8:C5:EF:78 (Unknown)
+
+Nmap scan report for lab-dvwa (172.24.0.4)
+Host is up (0.000031s latency).
+rDNS record for 172.24.0.4: lab-dvwa.medusa-lab_medusa-lab
+
+PORT    STATE  SERVICE      VERSION
+21/tcp  closed ftp
+80/tcp  open   http         Apache httpd 2.4.25 ((Debian))
+139/tcp closed netbios-ssn
+445/tcp closed microsoft-ds
+MAC Address: A6:6C:82:C7:34:44 (Unknown)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 4 IP addresses (4 hosts up) scanned in 11.36 seconds

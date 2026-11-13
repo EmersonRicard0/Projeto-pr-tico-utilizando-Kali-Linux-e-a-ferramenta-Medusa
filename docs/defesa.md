@@ -21,9 +21,10 @@ Entender o brute force serve, acima de tudo, para **defender** sistemas. Abaixo 
 
 ## 4. Proteções específicas de serviço
 
-- **fail2ban**: monitora logs (ex.: SSH, FTP) e bloqueia automaticamente IPs com muitas falhas de login.
-- **SSH endurecido**: desabilitar login de `root`, preferir **autenticação por chave** em vez de senha, restringir usuários permitidos e, quando possível, mudar a porta padrão.
-- **FTP**: preferir alternativas seguras (SFTP/FTPS) e desabilitar contas anônimas/desnecessárias.
+- **fail2ban**: monitora logs (FTP, SSH, web) e bloqueia automaticamente IPs com muitas falhas de login.
+- **FTP**: preferir alternativas seguras (SFTP/FTPS), desabilitar contas anônimas/desnecessárias e aplicar TLS.
+- **SMB**: desabilitar **SMBv1**, exigir **assinatura SMB** (SMB signing), restringir acesso anônimo (`restrict anonymous`) e segmentar a rede (não expor 139/445 à internet).
+- **Web**: proteger logins com rate limiting/WAF, **CAPTCHA** após X falhas, tokens anti-CSRF e, preferencialmente, abandonar autenticação básica em favor de sessões + MFA.
 
 ## 5. Monitoramento e resposta
 
@@ -36,7 +37,7 @@ Entender o brute force serve, acima de tudo, para **defender** sistemas. Abaixo 
 |--------|--------|--------|
 | Credencial | Senhas fortes + MFA | Reduz chance de acerto e invalida senha isolada |
 | Serviço | Lockout, rate limiting, fail2ban | Torna o ataque lento/inviável |
-| Configuração | SSH por chave, sem `root`, SFTP | Elimina superfícies fáceis |
+| Configuração | SFTP/FTPS, SMB signing sem SMBv1, WAF/CAPTCHA no web | Elimina superfícies fáceis |
 | Operação | Logs e alertas | Detecta e responde ao ataque |
 
 > A técnica ofensiva descrita em [conceito.md](./conceito.md) só é perigosa contra sistemas mal configurados. As medidas acima fecham essas brechas.

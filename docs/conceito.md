@@ -12,13 +12,13 @@ Existem variações comuns:
 - **Ataque de dicionário**: testa uma lista pré-definida de senhas prováveis (wordlist). É o mais usado na prática e o adotado neste laboratório.
 - **Credential stuffing**: reutiliza pares usuário/senha vazados em outros serviços.
 
-Neste projeto trabalhamos com **ataque de dicionário** contra serviços de autenticação em um ambiente de laboratório controlado.
+Neste projeto trabalhamos com **ataque de dicionário** contra os serviços **FTP, SMB e Web** em um ambiente de laboratório controlado.
 
 ## O papel da Medusa
 
 A **Medusa** é uma ferramenta de linha de comando, disponível no Kali Linux, voltada a testes de login por força bruta. Suas características principais:
 
-- **Modular por serviço**: cada protocolo é um módulo (`-M ssh`, `-M ftp`, etc.), então a mesma lógica serve para vários serviços.
+- **Modular por serviço**: cada protocolo é um módulo (`-M ftp`, `-M smbnt`, `-M http`, etc.), então a mesma lógica serve para vários serviços.
 - **Paralela**: testa várias credenciais simultaneamente (`-t`), acelerando a demonstração.
 - **Flexível nas entradas**: aceita usuário único (`-u`) ou lista de usuários (`-U`), e listas de senhas (`-P`).
 - **Saída objetiva**: reporta claramente quando uma credencial é encontrada e quando a lista se esgota.

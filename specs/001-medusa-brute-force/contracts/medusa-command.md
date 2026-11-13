@@ -17,7 +17,7 @@ medusa -h <ALVO> -u <USUARIO> | -U <ARQUIVO_USUARIOS> -P <ARQUIVO_SENHAS> -M <MO
 | `-h` | Alvo (host) | Sim | Placeholder de laboratório isolado (ex.: `192.168.56.101`); nunca alvo real de terceiro |
 | `-u` / `-U` | Usuário único / arquivo de usuários | Sim (um dos dois) | Fictício; `-U` aponta para `wordlists/usuarios.txt` |
 | `-P` | Arquivo de senhas (wordlist) | Sim | Fictício; aponta para `wordlists/senhas.txt` |
-| `-M` | Módulo de serviço | Sim | Um por exemplo; o conjunto deve cobrir ≥ 2 serviços distintos (ex.: `ssh`, `ftp`) |
+| `-M` | Módulo de serviço | Sim | Um por exemplo; o conjunto cobre FTP (`ftp`), SMB (`smbnt`) e Web (`http`) |
 | `-t` | Paralelismo (threads) | Opcional | Explicar impacto em velocidade vs. carga/ruído |
 | `-f` | Parar no primeiro sucesso | Opcional | Explicar o comportamento |
 | `-v` | Verbosidade | Opcional | Explicar nível de detalhe da saída |
@@ -32,11 +32,14 @@ medusa -h <ALVO> -u <USUARIO> | -U <ARQUIVO_USUARIOS> -P <ARQUIVO_SENHAS> -M <MO
 ## Exemplos de referência (ilustrativos — placeholders)
 
 ```bash
-# Exemplo A — SSH, lista de usuários x lista de senhas, para no primeiro sucesso
-medusa -h 192.168.56.101 -U wordlists/usuarios.txt -P wordlists/senhas.txt -M ssh -t 4 -f
+# FTP — lista de usuários x lista de senhas, para no primeiro sucesso
+medusa -h lab-ftp -U wordlists/usuarios.txt -P wordlists/senhas.txt -M ftp -t 4 -f
 
-# Exemplo B — FTP, usuário único x lista de senhas
-medusa -h 192.168.56.101 -u msfadmin -P wordlists/senhas.txt -M ftp -t 2
+# SMB — módulo smbnt
+medusa -h lab-smb -U wordlists/usuarios.txt -P wordlists/senhas.txt -M smbnt -t 2 -f
+
+# Web — autenticação básica HTTP
+medusa -h lab-web -U wordlists/usuarios.txt -P wordlists/senhas.txt -M http -m DIR:/ -t 4 -f
 ```
 
 > Desfecho esperado documentado junto a cada exemplo: `SUCCESS` (credencial encontrada) ou esgotamento da wordlist sem sucesso.

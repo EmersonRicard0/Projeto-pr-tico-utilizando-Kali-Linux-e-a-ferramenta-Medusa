@@ -1,0 +1,15 @@
+# Normalização de fim de linha
+* text=auto
+
+# Arquivos que DEVEM usar LF (executados em Linux/Kali)
+*.sh            text eol=lf
+*.conf          text eol=lf
+*.yml           text eol=lf
+*.yaml          text eol=lf
+.htpasswd       text eol=lf
+wordlists/*.txt text eol=lf
+
+# Imagens e binários
+*.png binary
+*.jpg binary
+*.gif binary

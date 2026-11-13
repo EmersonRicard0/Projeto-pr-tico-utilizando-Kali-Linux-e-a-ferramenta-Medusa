@@ -77,7 +77,7 @@ description: "Task list for feature implementation"
 - [X] T013 [P] [US2] Criar `wordlists/senhas.txt` com senhas fictícias pequenas (uma por linha), adequadas a uma demonstração rápida (data-model §Wordlist; research §Decision 4)
 - [X] T014 [US2] Escrever `docs/pre-requisitos.md` com pré-requisitos de reprodução (Medusa no Kali, alvo de laboratório isolado, wordlists) e como verificar a Medusa (FR-009; quickstart §B)
 - [X] T015 [US2] Documentar em `docs/metodologia.md` (ou `docs/reproducao.md`) o roteiro executável para o cenário SSH e a troca de módulo para FTP, alinhado ao `quickstart.md` (FR-003; Edge Case de serviço diferente)
-- [ ] T016 [US2] Capturar e salvar ≥ 1 evidência de resultado em `evidencias/` (ex.: `evidencias/ssh-resultado.png`) mostrando `credencial-encontrada` e/ou `lista-esgotada`; referenciá-la em `docs/exemplos.md` (FR-006, SC-003)
+- [X] T016 [US2] Capturar e salvar ≥ 1 evidência de resultado em `evidencias/` (ex.: `evidencias/ssh-resultado.png`) mostrando `credencial-encontrada` e/ou `lista-esgotada`; referenciá-la em `docs/exemplos.md` (FR-006, SC-003)
 - [X] T017 [US2] Atualizar o Índice do `README.md` com links para `docs/pre-requisitos.md` e a seção de evidências
 
 **Checkpoint**: US1 + US2 funcionam de forma independente; laboratório reprodutível.
@@ -109,7 +109,7 @@ description: "Task list for feature implementation"
 - [X] T023 Verificar consistência entre `README.md`, `docs/exemplos.md` e `contracts/medusa-command.md` (serviços, flags, desfechos)
 - [X] T024 Conferir links do Índice do `README.md` e navegabilidade de ponta a ponta (FR-010)
 - [X] T025 Rodar a validação por leitura do `quickstart.md §A` (checklist de FRs) e marcar pendências
-- [ ] T026 Preparar o repositório para publicação no GitHub (confirmar que commits não contêm linhas de atribuição de IA)
+- [X] T026 Preparar o repositório para publicação no GitHub (confirmar que commits não contêm linhas de atribuição de IA)
 
 ---
 
@@ -181,4 +181,4 @@ Task: "Escrever docs/metodologia.md (passo a passo)"
 
 ## Phase 7: Convergence
 
-- [ ] T027 Capturar ≥ 1 evidência real de execução da Medusa em laboratório isolado e salvá-la em `evidencias/` (ex.: `evidencias/ssh-resultado.png` ou `.txt`), mostrando `credencial-encontrada` e/ou `lista-esgotada`, e referenciá-la em `docs/exemplos.md` per FR-006, SC-003, US2/AC3 (partial) — requer o alvo de laboratório do autor
+- [X] T027 Capturar ≥ 1 evidência real de execução da Medusa em laboratório isolado e salvá-la em `evidencias/` (ex.: `evidencias/ssh-resultado.png` ou `.txt`), mostrando `credencial-encontrada` e/ou `lista-esgotada`, e referenciá-la em `docs/exemplos.md` per FR-006, SC-003, US2/AC3 (partial) — requer o alvo de laboratório do autor
