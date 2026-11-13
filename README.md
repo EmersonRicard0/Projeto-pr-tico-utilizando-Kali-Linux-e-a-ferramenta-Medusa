@@ -22,9 +22,7 @@ Resultado em todos (credencial fraca plantada no laboratório):
 ACCOUNT FOUND: ... User: msfadmin Password: msfadmin [SUCCESS]
 ```
 
-![Brute force FTP com Medusa](images/01-ftp-medusa.png)
-
-> Mais evidências (SMB, Web e Nmap), em imagem e texto, na pasta [images/](images/).
+> Evidências completas (FTP, SMB, Web e Nmap) na pasta [images/](images/).
 
 ## Ambiente
 
